@@ -17,7 +17,7 @@ func TimeWithGracePeriod(duration time.Duration) func(time.Time) bool {
 
 // ContextWithValue will return a testify mock argument matcher that has will match context.Context
 // and compare a given value stored in the context with the given argument ctxValue
-func ContextWithValue(key string, ctxValue interface{}) func(ctx context.Context) bool {
+func ContextWithValue(key interface{}, ctxValue interface{}) func(ctx context.Context) bool {
 	return func(ctx context.Context) bool {
 		return reflect.DeepEqual(ctx.Value(key), ctxValue)
 	}
